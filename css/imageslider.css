@@ -1,0 +1,44 @@
+.imsl-slide-show {
+	position: relative;
+	overflow: hidden;
+}
+.imsl-slide-show ul {
+	z-index: 100;
+}
+
+.imsl-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.imsl-arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 999;
+	cursor: pointer;
+}
+.imsl-arrow-left {
+	left: 10px;
+}
+.imsl-arrow-right {
+	right: 10px;
+}
+
+.imsl-dots {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	z-index: 900;
+	margin:0 auto;
+}
+.imsl-dots > li {
+	width: 8px;
+	height: 8px;
+	overflow: hidden;
+	float: left;
+	margin-right: 10px;
+	background: url("../images/dots.png") no-repeat 0 0;
+}
+.imsl-dots > li.active {
+	background: url("../images/dots.png") no-repeat 0 -8px;
+}
