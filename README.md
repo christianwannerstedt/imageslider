@@ -5,7 +5,8 @@ A wordpress plugin to create and insert slide shows in a very simple way.
 
 ### Installation
 
-1. Upload the `imageslider` folder to the `/wp-content/plugins/` directory
+1. Clone this repository into the `/wp-content/plugins/` directory of your wordpress installation:
+```git clone git://github.com/christianwannerstedt/imageslider.git```
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. You can now manage slide shows through the administration interface, you find the new section in the menu called "Slide shows"
 4. Create a new slide show from the menu "Slide shows" > "New slide show"
