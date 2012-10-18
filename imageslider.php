@@ -382,8 +382,9 @@ function imageslider_the_content($content){
 			// Contrsuct dots
 			$slide_show_html .= '<ul class="imsl-dots" style="margin-left: -'. (sizeof($slides) * 4 + (sizeof($slides) - 1) * 5) .'px">';
 			$first = true;
+			$position = 0;
 			foreach ($slides as $slide){
-				$slide_show_html .= '<li id="imsl-dot-'. $slide->id .'"';
+				$slide_show_html .= '<li id="imsl-dot-'. $slide->id .'" data-slide-position="'. $position++ .'"';
 				if ($first){
 					$slide_show_html .= ' class="active"';
 					$first = false;

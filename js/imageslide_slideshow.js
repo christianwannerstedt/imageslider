@@ -3,6 +3,7 @@
 	$.fn.imslSlideShow = function(options){
 		var slides = [],
 			current_id = 0,
+			current_position = 0,
 			slide_width = options.width || $(this).data("slide-width") || 800,
 			slide_height = options.height || $(this).data("slide-height") || 600,
 			duration = options.duration || $(this).data("transition-time") || 1000,
@@ -15,13 +16,18 @@
 		});
 
 		$(".imsl-arrow-left", this).click(function(){
-			var next_id = (current_id > 0) ? current_id - 1 : slides.length - 1;			
+			var next_id = (current_id > 0) ? current_id - 1 : slides.length - 1;
 			animateSlides(next_id, true);
 		});
 		$(".imsl-arrow-right", this).click(function(){
 			var next_id = (current_id < slides.length - 1) ? current_id + 1 : 0;
 			animateSlides(next_id, false);
 		});
+
+		$(".imsl-dots li", this).click(function(){
+			var clicked_position = $(this).data("slide-position");
+			if (clicked_position != current_position) animateSlides(clicked_position, clicked_position < current_position);
+		}).css("cursor", "pointer");
 
 		function animateSlides(next_id, pos_slide){
 			if (animating) return;
@@ -32,16 +38,18 @@
 
 			next_slide.css("left", (pos_slide ? "-" : "+") + slide_width +"px").add( current_slide ).animate({
 				left: (pos_slide ? "+=" : "-=") + slide_width
-			}, duration, easing, function(){				
+			}, duration, easing, function(){
 				current_id = next_id;
 				$(".imsl-dots li.active", _this).removeClass("active");
-				$("#imsl-dot-"+ slides[current_id].attr("id").split("-")[1]).addClass("active");
+				var dot = $("#imsl-dot-"+ slides[current_id].attr("id").split("-")[1]);
+				dot.addClass("active");
+				current_position = dot.data("slide-position");
 				animating = false;
 			});
 		}
 
 		return this;
-	}
+	};
 
 	$(document).ready(function($){
 		
