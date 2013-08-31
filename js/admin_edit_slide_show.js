@@ -7,7 +7,7 @@
 			sel_val = sel.val();
 		$.each( $.easing, function(name, impl){
 			if ($.isFunction(impl) && !/jswing/.test(name) && name != sel_val) sel.append( $("<option></option>").val(name).text(name) );
-		});	
+		});
 
 		// Slide Model
 		var Slide = Backbone.Model.extend({
@@ -121,14 +121,14 @@
 				});
 			},
 			render: function(){
-			    this.$el.html( this.template( {slides: this.collection.toJSON()} ) );
-			    return this;
+				this.$el.html( this.template( {slides: this.collection.toJSON()} ) );
+				return this;
 			}
 		});
 
 
 		// Create the backbone view
-		var slide_show_view = new SlideShowView({ 
+		var slide_show_view = new SlideShowView({
 			el: $("#edit-slides-list-container"),
 			collection: new Slides(slides_json)
 		}).render().setupSorting();
@@ -145,7 +145,9 @@
 				slide_show_id: $("#slide-show-id").val(),
 				title: $("#slide-show-title").val(),
 				transition_time: $("#slide-show-transition-time").val(),
-				easing: $("#slide-show-easing").val()
+				easing: $("#slide-show-easing").val(),
+				theme: $("#slide-show-theme").val(),
+				display_title: $("#slide-show-display-title").is(":checked") ? 1 : 0
 			};
 
 			$.post(ajaxurl, data, function(response) {
@@ -169,7 +171,7 @@
 				min_width: image_width,
 				min_height: image_height,
 				thumb_width: 150,
-				thumb_height: 100				
+				thumb_height: 100
 			}
 		}).init();
 
@@ -180,5 +182,5 @@
 			});
 		});
 	});
-	
+
 }(jQuery, window, document));

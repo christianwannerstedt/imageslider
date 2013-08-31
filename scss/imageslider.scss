@@ -1,0 +1,71 @@
+@import "_variables";
+@import "_mixins";
+
+.imsl-slide-show {
+	position: relative;
+	overflow: hidden;
+}
+.imsl-slide-show ul {
+	z-index: 100;
+}
+
+.imsl-slide-show-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.imsl-slide-show-title span {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #3D3D3D;
+	color: #fff;
+}
+
+.imsl-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.imsl-arrow {
+	position: absolute;
+	top: 50%;
+	width: 32px;
+	height: 60px;
+	z-index: 999;
+	cursor: pointer;
+}
+.imsl-arrow-left {
+	left: 10px;
+}
+.imsl-arrow-right {
+	right: 10px;
+}
+
+.imsl-dots {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	z-index: 900;
+	margin:0 auto;
+}
+.imsl-dots > li {
+	width: 8px;
+	height: 8px;
+	overflow: hidden;
+	float: left;
+	margin-right: 10px;
+}
+.color-grey .imsl-dots > li {
+	background-position: -8px 0;
+}
+.imsl-dots > .active {
+	background-position: 0 -8px;
+}
+.color-grey .imsl-dots > .active {
+	background-position: -8px -8px;
+}
+
+
+
+@import "../themes/basic/scss/basic";
+@import "../themes/light/scss/light";

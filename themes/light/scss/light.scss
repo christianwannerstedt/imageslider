@@ -1,0 +1,8 @@
+.theme-light {
+	.imsl-dots > li {
+		background: url("../themes/light/img/dots.png") no-repeat 0 0;
+	}
+	.imsl-dots > li.active {
+		background: url("../themes/light/img/dots.png") no-repeat 0 -8px;
+	}	
+}

@@ -1,0 +1,183 @@
+// I gather this file is a starting point for the project.
+@import "_variables";
+@import "_mixins";
+@import "_progress-bars";
+
+/*
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+*/
+
+/* Resets */
+ul, li, ul li { margin: 0; padding: 0; }
+
+
+#slideshow-content {
+	&>li {
+		padding: 10px;
+		margin-bottom: 10px;
+		background-color: #fefefe;
+		border: 1px solid #bbb;
+		@include border-radius(4px);
+	}
+	&>li>div {
+		ul {
+			float: left;
+			li {
+				height: 20px;
+				span {
+					color: #888;
+					font-style: italic;
+					font-size: 12px;
+				}
+			}
+		}
+		div {
+			float: right;
+		}
+	}
+	img {
+		width: 75px; 
+		height: 50px;
+	}
+	.button-primary { float: left; }
+	.button-secondary { float: right; }
+}
+
+/* Settings list */
+.imsl-ul-settings {
+	clear: both;
+	margin: 10px;
+
+	li {
+		clear: both;
+		height: 30px;
+		line-height: 30px;
+		list-style: none;
+	}
+	label {
+		width: 120px;
+		display: block;
+		float: left;
+		text-align: left;
+	}
+	input {
+		float: left;
+	}
+	input[type="text"] {
+		width: 200px;
+		margin-top: 2px;
+	}
+	input[type="checkbox"] {
+		margin-top: 8px;
+	}
+}
+
+
+.swfupload {
+	margin: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+#edit-slides-list {
+	img {
+		float: left;
+		margin: 10px;
+	}
+	p {
+		float: left;
+		margin: 30px 0 0 50px;
+
+		&.slide-updated {
+			display: none;
+			margin-top: 33px;
+			color: #006600;
+		}
+	}
+
+	& > li {
+		clear: both;
+		list-style: none;
+
+		&:nth-child(odd){
+			background-color: #eee;
+		}
+	}
+
+}
+
+
+.edit-slide-info {
+	float:left;
+	list-style: none;
+	margin: 10px 0;
+
+	li {
+		clear: both;
+		list-style: none;
+
+		& > * {
+			float: left;
+		}
+		& > label {
+			width: 40px;
+			line-height: 22px;
+			text-align: left;
+		}
+		& > input {
+			width: 200px;
+		}
+	}
+}
+
+#plupload-submit-button { display:none; }
+#plupload-list {
+	width: 90%;
+	max-width: 600px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	display: none;
+
+	li {
+		list-style: none;
+		margin: 0 0 10px 0;
+		padding: 10px;
+
+		background-color: #fff;
+		border: 1px solid #bbb;
+		@include border-radius(4px);
+
+		.plupload-file-head {
+			font-size: 14px;
+
+			.status {
+				margin-right: 5px;
+			}
+		}
+
+		.progress {
+			margin-bottom: 0;
+		}
+	}
+}
+
+#plupload-container {
+	width: 90%;
+	max-width: 600px;
+	height: 250px;
+	background-color: #eee;
+	border: 1px solid #bbb;
+	@include border-radius(4px);
+	text-align: center;
+
+	p { 
+		margin-top: 120px;
+		font-size:10px; 
+		color: #888;
+	}
+	a {
+		cursor: pointer;
+	}
+}

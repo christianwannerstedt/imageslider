@@ -14,11 +14,11 @@ add_meta_box("imageslider_content", $title, "imageslider_meta_box", "imageslider
 
 <?php
 function imageslider_meta_box(){
-global $wpdb;
+global $wpdb, $IMSL_DEFAULT_WIDTH, $IMSL_DEFAULT_HEIGHT;
 ?>
 
 	<form name="frmImageSlider" action="<?php echo admin_url('admin.php') .'?page=imageslider-new'; ?>" method="post">
-		<input type="hidden" name="action" value="create" />
+		<input type="hidden" name="admin-action" value="create" />
 
 		<ul class="imsl-ul-settings">
 			<li>
@@ -27,15 +27,19 @@ global $wpdb;
 			</li>
 			<li>
 				<label>Width:</label>
-				<input type="text" name="slide_show_width" value="">
+				<input type="text" name="slide_show_width" value="<?php
+				echo $IMSL_DEFAULT_WIDTH ? $IMSL_DEFAULT_WIDTH : 640;
+				?>">
 			</li>
 			<li>
 				<label>Height:</label>
-				<input type="text" name="slide_show_height" value="">
+				<input type="text" name="slide_show_height" value="<?php
+				echo $IMSL_DEFAULT_HEIGHT ? $IMSL_DEFAULT_HEIGHT : 320;
+				?>">
 			</li>
 			<li>
 				<label>Transition time:</label>
-				<input type="text" name="slide_show_transition_time" value="1000">
+				<input type="text" name="slide_show_transition_time" value="400">
 			</li>
 			<li>
 				<label>Easing:</label>
@@ -56,6 +60,13 @@ global $wpdb;
 				});
 				}(jQuery, window, document));
 				</script>
+			</li>
+			<li>
+				<label>Theme:</label>
+				<select id="slide-show-theme" name="slide-show-theme">
+					<option value="basic" selected="selected">Basic</option>
+					<option value="light">Light</option>
+				</select>
 			</li>
 		</ul>
 

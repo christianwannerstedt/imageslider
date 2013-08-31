@@ -87,7 +87,7 @@ global $wpdb, $slide_show;
 	<div id="plupload-container">
 		<p>Drop images here, or <a id="plupload-browse-button">browse</a></p>
 	</div>
-	
+
 	<ul id="plupload-list"></ul>
 
 	<button id="plupload-submit-button" class="button-primary">Start upload</button>
@@ -118,6 +118,17 @@ global $wpdb, $slide_show;
 				<select id="slide-show-easing" name="slide-show-easing">
 					<option value="<?php echo $slide_show->easing; ?>" selected="selected"><?php echo $slide_show->easing; ?></option>
 				</select>
+			</li>
+			<li>
+				<label>Theme:</label>
+				<select id="slide-show-theme" name="slide-show-theme">
+					<option value="basic"<?php selected($slide_show->theme, "basic"); ?>>Basic</option>
+					<option value="light"<?php selected($slide_show->theme, "light"); ?>>Light</option>
+				</select>
+			</li>
+			<li>
+				<label>Display slide titles:</label>
+				<input type="checkbox" id="slide-show-display-title" name="slide-show-display-title" value="1"<?php if ($slide_show->display_title) echo " checked='checked'"; ?>>
 			</li>
 		</ul>
 
