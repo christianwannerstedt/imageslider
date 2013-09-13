@@ -368,7 +368,7 @@ function imageslider_get_slideshow_output_for_id($id){
 		$slides = $wpdb->get_results(sprintf("SELECT * FROM %s WHERE slideShowId=%d ORDER BY position;", IMSL_TABLE_SLIDES, $slide_show->id));
 
 		// Construct output
-		$slide_show_html .= '<div class="imsl-slide-show theme-'. $slide_show->theme .'" style="width: '. $slide_show->width .'px; height: '. $slide_show->height .'px;" data-slide-width="'. $slide_show->width .'" data-slide-height="'. $slide_show->height .'" data-transition-time="'. $slide_show->transition_time.'" data-easing="'. $slide_show->easing .'">';
+		$slide_show_html .= '<div class="imsl-slide-show theme-'. $slide_show->theme .'" style="width: '. $slide_show->width .'px; height: '. $slide_show->height .'px;" data-slide-width="'. $slide_show->width .'" data-slide-height="'. $slide_show->height .'" data-transition-time="'. $slide_show->transition_time.'" data-easing="'. $slide_show->easing .'" data-slideshow="'. $slide_show->id .'"">';
 		$slide_show_html .= '<ul>';
 		$first = true;
 		foreach ($slides as $slide){
@@ -379,7 +379,15 @@ function imageslider_get_slideshow_output_for_id($id){
 				$left = $slide_show->width;
 			}
 			$slide_show_html .= '
-			<li id="slide-'. $slide->id .'" class="imsl-slide" style="left: '. $left .'px;">
+			<li id="slide-'. $slide->id .'" class="imsl-slide" style="left: '. $left .'px;">';
+
+			if ($slide_show->display_title){
+				$slide_show_html .= '
+					<div class="imsl-slide-show-title"><span>'. $slide->title .'</span></div>';
+			}
+
+			$slide_show_html .= '
+
 				<img src="'. $slide->large_url .'">
 			</li>';
 		}
