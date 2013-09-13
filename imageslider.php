@@ -381,7 +381,7 @@ function imageslider_get_slideshow_output_for_id($id){
 			$slide_show_html .= '
 			<li id="slide-'. $slide->id .'" class="imsl-slide" style="left: '. $left .'px;">';
 
-			if ($slide_show->display_title){
+			if ($slide_show->display_title && $slide->title){
 				$slide_show_html .= '
 					<div class="imsl-slide-show-title"><span>'. $slide->title .'</span></div>';
 			}
