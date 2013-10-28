@@ -421,4 +421,10 @@ function imageslider_head_scripts(){
     wp_enqueue_style('imageslider_style', plugins_url('css/imageslider.css', __FILE__));
 }
 
+function imageslider_get_slideshow($id){
+	global $wpdb;
+	$result = $wpdb->get_results(sprintf("SELECT * FROM `%s` WHERE id=%d LIMIT 1;", IMSL_TABLE_SLIDE_SHOWS, $id));
+	return $result[0];
+}
+
 ?>
