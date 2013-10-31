@@ -362,7 +362,6 @@ function imageslider_get_slideshow_output_for_id($id){
 		wp_enqueue_script("jquery-effects-core");
 		wp_enqueue_script('imageslider_slideshow', plugins_url('js/imageslide_slideshow.js', __FILE__));
 		wp_enqueue_style('imageslider_style', plugins_url('css/imageslider.css', __FILE__));
-    	wp_enqueue_style('imageslider_theme_style', plugins_url('themes/'. $slide_show->theme .'/css/'. $slide_show->theme .'.css', __FILE__));
 
 		// Get the slides
 		$slides = $wpdb->get_results(sprintf("SELECT * FROM %s WHERE slideShowId=%d ORDER BY position;", IMSL_TABLE_SLIDES, $slide_show->id));
