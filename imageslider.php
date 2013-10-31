@@ -386,9 +386,18 @@ function imageslider_get_slideshow_output_for_id($id){
 					<div class="imsl-slide-show-title"><span>'. $slide->title .'</span></div>';
 			}
 
-			$slide_show_html .= '
+			if ($slide->link){
+				$slide_show_html .= '<a href="'. $slide->link .'">';
+			}
 
-				<img src="'. $slide->large_url .'">
+			$slide_show_html .= '
+				<img src="'. $slide->large_url .'">';
+
+			if ($slide->link){
+				$slide_show_html .= '</a>';
+			}
+
+			$slide_show_html .= '
 			</li>';
 		}
 		$slide_show_html .= '</ul>';
