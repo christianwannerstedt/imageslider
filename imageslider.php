@@ -222,7 +222,6 @@ function imageslider_edit_slide_show_head() {
 
 	// CSS
 	wp_enqueue_style('imageslider_admin_style', plugins_url('css/admin.css', __FILE__));
-	wp_enqueue_style('swfupload_style', plugins_url('js/swfupload/css/default.css', __FILE__));
 }
 
 
