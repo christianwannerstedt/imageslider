@@ -47,8 +47,8 @@ global $wpdb, $slides;
     </ul>
 </script>
 <script type="text/template" id="slide-template">
-	<li id="slide-<%= id %>" class="clearfix">
-		<img src="<%= thumb_url %>">
+	<li id="slide-<%= id %>" class="clearfix" data-large-url="<%= large_url %>">
+		<img src="<%= thumb_url %>" class="thumb">
 		<ul class="edit-slide-info">
 			<li>
 				<label for="slide-<%= id %>-title">Title: </label>

@@ -16,7 +16,8 @@
 		        id: "-",
 		        title: "",
 		        link: "",
-		        thumb_url: ""
+		        thumb_url: "",
+		        large_url: ""
 		    },
 		    initialize: function(){},
 		    sync: function(method, model, options){
@@ -79,8 +80,17 @@
 				return this;
 			},
 			events: {
+				"dblclick .thumb": "openLarge",
 				"click .delete-slide-button":  "deleteSlide",
 				"click .update-slide-button": "updateSlide"
+			},
+			openLarge: function(e){
+				var _this = this,
+					$li = $(e.currentTarget).closest("li"),
+					large_url = $li.attr("data-large-url");
+				console.log($li);
+				console.log(large_url);
+				window.open(large_url);
 			},
 			deleteSlide: function(e){
 				var slide_id = $(e.currentTarget).attr("id").split("-")[2],
@@ -178,7 +188,8 @@
 		$(pluploader).on("PluploadFileUploaded", function(event, json_response){
 			slide_show_view.collection.add({
 				id: json_response.id,
-				thumb_url: json_response.thumb_url
+				thumb_url: json_response.thumb_url,
+				large_url: json_response.large_url,
 			});
 		});
 	});
